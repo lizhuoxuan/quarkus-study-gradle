@@ -11,6 +11,12 @@ import javax.ws.rs.core.Response;
 @Path("/hello")
 public class quarkus {
 
+    @Path("/test")
+    @GET
+    public String test() {
+        return "hello";
+    }
+
     @Path("/get")
     @GET
     public String getHello(@QueryParam("a") Integer a, @QueryParam("b") String b) {
