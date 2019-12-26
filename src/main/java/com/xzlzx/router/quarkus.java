@@ -3,7 +3,9 @@ package com.xzlzx.router;
 import com.xzlzx.bean.PostBody;
 import com.xzlzx.bean.R;
 import com.xzlzx.bean.User;
+import io.vertx.axle.core.Vertx;
 
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -11,9 +13,13 @@ import javax.ws.rs.core.Response;
 @Path("/hello")
 public class quarkus {
 
+    @Inject
+    Vertx vertx;
+
     @Path("/test")
     @GET
     public String test() {
+        System.out.println(vertx);
         return "hello";
     }
 
