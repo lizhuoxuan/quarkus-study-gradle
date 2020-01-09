@@ -1,10 +1,12 @@
 package com.xzlzx.bean;
 
-public class R {
+public class R<T> {
 
     public Integer a;
 
     public String b;
+
+    public T data;
 
     public R() {
     }
