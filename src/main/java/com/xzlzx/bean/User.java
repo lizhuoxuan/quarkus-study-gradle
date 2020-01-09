@@ -1,16 +1,18 @@
 package com.xzlzx.bean;
 
-public class User {
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
-    public Integer id;
+import javax.persistence.Entity;
+
+@Entity
+public class User extends PanacheEntity {
 
     public String name;
 
     public User() {
     }
 
-    public User(Integer id, String name) {
-        this.id = id;
+    public User(String name) {
         this.name = name;
     }
 }
