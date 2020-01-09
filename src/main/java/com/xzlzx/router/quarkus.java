@@ -1,5 +1,7 @@
 package com.xzlzx.router;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.xzlzx.bean.PostBody;
 import com.xzlzx.bean.R;
 import com.xzlzx.bean.User;
@@ -9,6 +11,8 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.IOException;
+import java.util.List;
 
 @Path("/hello")
 public class quarkus {
@@ -18,8 +22,18 @@ public class quarkus {
 
     @Path("/test")
     @GET
-    public String test() {
-        System.out.println(vertx);
+    public String test() throws IOException {
+//        System.out.println(vertx);
+        String json = "[{\"a\":null,\"b\":\"abcd\"}]";
+        ObjectMapper mapper = new ObjectMapper();
+        List<R> o = mapper.readValue(json, new TypeReference<List<R>>() {});
+        for (R r : o) {
+            System.out.println(r.a);
+            System.out.println(r.b);
+            r.data = new PostBody();
+        }
+        String s = mapper.writeValueAsString(o);
+        System.out.println(s);
         return "hello";
     }
 
