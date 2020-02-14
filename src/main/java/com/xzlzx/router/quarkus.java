@@ -52,8 +52,10 @@ public class quarkus {
     @Path("/test/{b}")
     @GET
     @Produces(value = "plain/text")
-    public String test(@QueryParam("a") String a) throws IOException {
+    public String test(@QueryParam("a") String a,
+                       @PathParam("b") String b) throws IOException {
         System.out.println(a);
+        System.out.println(b);
         String json = "[{\"a\":null,\"b\":\"abcd\"}]";
         ObjectMapper mapper = new ObjectMapper();
         List<R> o = mapper.readValue(json, new TypeReference<List<R>>() {});
