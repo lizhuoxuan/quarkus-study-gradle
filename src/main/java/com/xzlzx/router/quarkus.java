@@ -51,7 +51,7 @@ public class quarkus {
     })
     @Path("/test/{b}")
     @GET
-    @Produces(value = "plain/text")
+    @Produces(MediaType.TEXT_PLAIN)
     public String test(@QueryParam("a") String a,
                        @PathParam("b") String b) throws IOException {
         System.out.println(a);
@@ -71,12 +71,12 @@ public class quarkus {
 
     @Path("/get")
     @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes(MediaType.TEXT_PLAIN)
     public String getHello(
-            HttpServerRequest httpServerRequest,
             @QueryParam("a") Integer a,
                            @QueryParam("b") String b) {
-        MultiMap headers = httpServerRequest.getDelegate().headers();
-
+        System.out.println(b);
         return String.format("hello:  %d  ,  %s", a, b);
     }
 

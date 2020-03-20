@@ -4,8 +4,8 @@ Content-Type: application/json
 {"a":"123", "b":"456"}
 
 ###
-GET http://localhost:8080/hello/get?a=123&b=3ab
-
+GET http://localhost:8080/hello/get?a=123&b=3ab-0
+Content-Type: text/plain
 
 ###
 GET http://localhost:8080/hello/response?a=123&b=3ab

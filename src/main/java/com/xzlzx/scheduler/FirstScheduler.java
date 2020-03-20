@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 
 public class FirstScheduler {
 
-    @Scheduled(every = "10s")
+//    @Scheduled(every = "10s")
     void cmd() {
         try {
             Process process = Runtime.getRuntime().exec("cmd.exe /c dir");
