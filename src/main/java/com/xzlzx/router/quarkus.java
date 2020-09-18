@@ -37,6 +37,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Tag(name = "组一", description = "第一组接口说明")
 @Path("/hello")
 public class quarkus {
 
@@ -48,12 +49,14 @@ public class quarkus {
     @Parameters({
             @Parameter(name = "a", description = "a的说明", in = ParameterIn.DEFAULT),
             @Parameter(name = "b", description = "b的说明", in = ParameterIn.PATH),
+            @Parameter(name = "c", description = "c的说明", in = ParameterIn.HEADER),
     })
-    @Path("/test/{b}")
+    @Path("/testget/{b}")
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String test(@QueryParam("a") String a,
-                       @PathParam("b") String b) throws IOException {
+                       @PathParam("b") String b,
+                       @HeaderParam("c") String c) throws IOException {
         System.out.println(a);
         System.out.println(b);
         String json = "[{\"a\":null,\"b\":\"abcd\"}]";
@@ -82,9 +85,10 @@ public class quarkus {
 
     // swagger ui 说明
     @Operation(summary = "接口的简述2", description = "详细说明2")
-    @RequestBody(description = "post参数说明", required = true,
+    @RequestBody(description = "post参数说明",
+            required = true,
             content = @Content(mediaType = MediaType.APPLICATION_JSON))
-    @Path("/post")
+    @Path("/testpost")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
