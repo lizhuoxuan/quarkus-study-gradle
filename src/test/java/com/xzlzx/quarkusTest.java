@@ -9,13 +9,13 @@ import static org.hamcrest.CoreMatchers.is;
 @QuarkusTest
 public class quarkusTest {
 
-    @Test
-    public void testHelloEndpoint() {
-        given()
-          .when().get("/hello/test")
-          .then()
-             .statusCode(200)
-             .body(is("hello"));
-    }
+//    @Test
+//    public void testHelloEndpoint() {
+//        given()
+//          .when().get("/hello/test")
+//          .then()
+//             .statusCode(200)
+//             .body(is("hello"));
+//    }
 
 }

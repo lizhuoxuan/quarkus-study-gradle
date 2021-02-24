@@ -16,7 +16,7 @@ GET http://localhost:8080/hello/body?a=123&b=3ab
 
 
 ###
-GET http://localhost:8080/hello/test
-
+GET http://localhost:8080/hello/test/paramB?a=paramA
+c: paramC
 
 ###
