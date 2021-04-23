@@ -33,3 +33,5 @@ Or you can use Docker to build the native executable using: `./gradlew buildNati
 You can then execute your binary: `./build/quarkus-study-gradle-1.0-SNAPSHOT-runner`
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/gradle-tooling#building-a-native-executable .
+
+./gradlew addExtension --extensions="hibernate-validator"
